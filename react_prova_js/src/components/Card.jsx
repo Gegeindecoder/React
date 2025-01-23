@@ -3,6 +3,8 @@ se typescript
 
 interface Props{
     title:string
+    booleano: boolean
+    descrizione: string
 }
 */
 
