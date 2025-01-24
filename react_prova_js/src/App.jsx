@@ -2,7 +2,6 @@ import { useState } from 'react'
 import "./components/Navabar"
 import Card from './components/Card'
 import './App.css'
-import Input from './components/CardComponent'
 import CardComponent from './components/CardComponent'
 import CardHttp from './components/CardHttp'
 import CardRanom from './components/CardRandom'
@@ -34,7 +33,7 @@ function App() {
         addPersona={addPersona}// per aggiunge il nuovo valore insieme alle card esistenti da useState
       >
       </CardComponent>
-      <div>
+      <div style={{display: "flex", flexWrap:"wrap", gap: "10px", padding: "10px"}}>
         {persona.map((p) => (
           <Card
             key={p.id}
@@ -52,18 +51,18 @@ function App() {
           rPersona={rPersona}
         >
         </CardHttp>
-        <div>
-          {randomP.map((r)=>(
+        <div style={{display: "flex", flexWrap:"wrap", gap: "10px", padding: "10px"}}>
+          {randomP.map((r) => (
             <CardRanom
-              key = {r.email}
-              title = {r.title}
-              first = {r.first}
-              last ={r.last}
-              gender ={r.gender}
-              count ={r.count}
-              state ={r.state}
-              email =  {r.email}
-              img = {r.img}
+              key={r.email}
+              title={r.title}
+              first={r.first}
+              last={r.last}
+              gender={r.gender}
+              count={r.count}
+              state={r.state}
+              email={r.email}
+              img={r.img}
             >
             </CardRanom>
           ))}
