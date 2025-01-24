@@ -51,7 +51,7 @@ function App() {
           rPersona={rPersona}
         >
         </CardHttp>
-        <div style={{display: "flex", flexWrap:"wrap", gap: "10px", padding: "10px"}}>
+        <div style={{display: "flex", flexWrap:"wrap",justifyContent:"center", alignItems:"center", gap: "30px", padding: "35px"}}>
           {randomP.map((r) => (
             <CardRanom
               key={r.email}
