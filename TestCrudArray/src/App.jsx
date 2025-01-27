@@ -4,29 +4,35 @@ import PostInput from './components/PostInput'
 import GetInput from './components/GetInput'
 import PutInput from './components/PutInput'
 import DeleteInput from './components/DeleteInput'
+import Result from './components/CrudResult'
 
 function App() {
-  const addPersona = (p)=>{
-    setPersona([...persona, p])
+  const addtext = (t) => {
+    setText([t])
   }
-  const[persona, setPersona] = useState([])
+  const [text, setText] = useState([])
+
 
   return (
     <>
-    <div>
-      <div style={{ display: "flex",flexWrap: "wrap", justifyContent:"center"}}>
-      <GetInput></GetInput>
-      <PostInput
-      addPersona={addPersona}
-      ></PostInput>
-      <PutInput></PutInput>
-      <DeleteInput></DeleteInput>
-      </div>
-      <hr />
       <div>
-
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+          <GetInput
+            getText={addtext}
+          ></GetInput>
+          <PostInput
+            addtext={addtext}
+          ></PostInput>
+          <PutInput></PutInput>
+          <DeleteInput></DeleteInput>
+        </div>
+        <hr />
+        <div>
+          <Result
+            arrayText={text}
+          ></Result>
+        </div>
       </div>
-    </div>
     </>
   )
 }

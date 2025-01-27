@@ -1,14 +1,24 @@
-import { useState } from "react";
 
-function GetInput(){
+function GetInput({ getText }){
     
     const url='https://jsonplaceholder.typicode.com/posts'
 
-    const[get,setGet]=useState({})
+    // const[get,setGet]=useState({
+    //     id:0,
+    //     userId:0,
+    //     title:''
+    // });
     const getP=()=>{
         fetch(url)
         .then((res)=> res.json())
-        .then((data)=>console.log(data))
+        .then((data)=>{
+            data.map((d)=>{
+                const object = data[d.id-1]
+                console.log(object)
+                getText(data)
+            })
+
+        })
     }
     
 
@@ -19,4 +29,4 @@ function GetInput(){
     )
 }
 
-export default GetInput;
+export default GetInput;  
