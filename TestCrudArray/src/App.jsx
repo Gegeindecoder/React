@@ -2,14 +2,19 @@ import { useState } from 'react'
 import './App.css'
 import PostInput from './components/PostInput'
 import GetInput from './components/GetInput'
+import GetIdInput from './components/GetByIdInput'
 import PutInput from './components/PutInput'
 import DeleteInput from './components/DeleteInput'
-import Result from './components/CrudResult'
+import ResultA from './components/GetArray'
 
 function App() {
   const addtext = (t) => {
     setText([t])
   }
+
+  // const postText = (p) => {
+  //   setText(...text, text)
+  // }
   const [text, setText] = useState([])
 
 
@@ -20,17 +25,22 @@ function App() {
           <GetInput
             getText={addtext}
           ></GetInput>
+          <GetIdInput
+            getIdText = {addtext}
+          ></GetIdInput>
           <PostInput
-            addtext={addtext}
+            postText={addtext}
           ></PostInput>
-          <PutInput></PutInput>
+          <PutInput
+            putText={addtext}
+          ></PutInput>
           <DeleteInput></DeleteInput>
         </div>
         <hr />
-        <div>
-          <Result
+        <div style={{ backgroundColor: "#F2F2F2" }}>
+          <ResultA
             arrayText={text}
-          ></Result>
+          ></ResultA>
         </div>
       </div>
     </>

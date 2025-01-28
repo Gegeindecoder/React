@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { putT } from "../services/TextService";
 
-function PutInput(){
+function PutInput({putText}){
     
     const[inputPut, setInputPut] = useState({
         id:1,
@@ -14,18 +15,15 @@ function PutInput(){
             ...p, [name]:value
         }))
     }
-    const putP= ()=>{
-            const url=`https://jsonplaceholder.typicode.com/posts/${inputPut.id}`// da mettere id 
+    // const putP= ()=>{
+    //         const url=`https://jsonplaceholder.typicode.com/posts/${inputPut.id}`// da mettere id 
             
-            fetch(url,{
-                method:'PUT',
-                headers:{ 'Content-Type': 'application/json' },
-                body: JSON.stringify(inputPut)
-            })
-            .then(res=> res.json())
-            .then(data => console.log(data))
-            .catch((e)=>console.log(e))
-        }
+            
+    //     }
+    const handleButton=()=>{
+        console.log('click put')
+        putT(inputPut,setInputPut,putText)
+    }
         
 
     return(
@@ -33,7 +31,7 @@ function PutInput(){
             <input type="number" name="id" value={inputPut.id} placeholder="inserisci l'id" onChange={handleChange} />
             <input type="text" name="title" value={inputPut.title} placeholder="inserisci un testo" onChange={handleChange} />
             <input type="number" name="userId" value={inputPut.userId} placeholder="l'id del autore" onChange={handleChange} />
-            <button onClick={putP}>PUT</button>
+            <button onClick={handleButton}>PUT</button>
         </div>
     )
 }

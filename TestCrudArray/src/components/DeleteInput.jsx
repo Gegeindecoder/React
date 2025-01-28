@@ -1,32 +1,28 @@
 import { useState } from "react";
+import { deleteP } from "../services/TextService";
 
-function DeleteInput(){
+function DeleteInput() {
 
-    const[inputDelete, setInputDelete] = useState({
-            id:1,
-        });
-        
-        const handleChange = (e)=>{
-            const {name, value} = e.target;
-            setInputDelete((p)=>({
-                ...p, [name]:value
-            }))
-        }
-   
-    const deleteP = () =>{
-            const url=`https://jsonplaceholder.typicode.com/posts/${inputDelete.id}`
-            fetch(url,{
-                method: 'DELETE'
-            })
-            .then((res) => res.status)
-            .then((data)=> console.log(data))
-            .catch((e)=>console.log(e))
+    const [inputDelete, setInputDelete] = useState({
+        id: 1,
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setInputDelete((p) => ({
+            ...p, [name]: value
+        }))
     }
 
-    return(
-        <div style={{display: "flex",  flexDirection: "column", border:"solid 1px", borderRadius:"5px", justifyContent:"center", alignItems:"center", gap: "30px", padding: "35px", margin:"20px"}}>
+    const handleButton = () => {
+        console.log('click delete')
+        deleteP(inputDelete, setInputDelete)
+    }
+
+    return (
+        <div style={{ display: "flex", flexDirection: "column", border: "solid 1px", borderRadius: "5px", justifyContent: "center", alignItems: "center", gap: "30px", padding: "35px", margin: "20px" }}>
             <input type="number" name="id" value={inputDelete.id} placeholder="inserisci l'id" onChange={handleChange} />
-            <button onClick={deleteP}>DELETE</button>
+            <button onClick={handleButton}>DELETE</button>
         </div>
     )
 }

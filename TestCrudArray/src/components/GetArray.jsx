@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import GetObject from "./GetObject"
 
-function CrudResult({ arrayText }) {
+function GetArray({ arrayText }) {
 
     // const [tArray, setTArray] = useState({
     //     id: 1,
@@ -37,17 +37,17 @@ function CrudResult({ arrayText }) {
     //     </div>
     // )
 
-    return (
-        <div style={{ border: "1px solid",display: "flex", flexWrap: "wrap", justifyContent: "center"  }}>
-            {arrayText.map(a =>
-                a.map(aIndex => (
-                    <div key={aIndex.id} style={{ border: "1px solid purple", justifyContent: "center", margin:"5px", padding:"2px", width:"25%" }}>
-                        <h6 style={{color:"red", float:"left top", marginTop:"0px" }}>id: {aIndex.id}</h6>
-                        <h3> userId: {aIndex.userId}</h3>
-                        <p>{aIndex.title}</p>
-                    </div>
-                ))
-            )}
+    return ( //https://www.kindacode.com/article/react-rendering-an-array-of-objects
+        <div style={{ border: "1px solid", display: "flex", flexWrap: "wrap", justifyContent: "center", borderRadius: "6px" }}>
+            {arrayText.map((a) => {
+                if (Array.isArray(a)) {
+                    return a.map(aIndex => (
+                        <GetObject key={aIndex.id} objectText={aIndex}></GetObject>
+                    ))
+                }else return <GetObject key={a.id} objectText={a}></GetObject>
+                
+                
+            })}
 
         </div>
 
@@ -55,4 +55,4 @@ function CrudResult({ arrayText }) {
 
 }
 
-export default CrudResult
+export default GetArray 

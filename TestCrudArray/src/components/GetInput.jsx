@@ -1,30 +1,23 @@
+import { getT } from "../services/TextService"
 
 function GetInput({ getText }){
     
-    const url='https://jsonplaceholder.typicode.com/posts'
 
     // const[get,setGet]=useState({
     //     id:0,
     //     userId:0,
     //     title:''
     // });
-    const getP=()=>{
-        fetch(url)
-        .then((res)=> res.json())
-        .then((data)=>{
-            data.map((d)=>{
-                const object = data[d.id-1]
-                console.log(object)
-                getText(data)
-            })
-
-        })
-    }
     
+     const handleButton =()=>{
+            console.log('click get')
+            getT(getText)
+        }    
+        
 
     return(
-        <div style={{display: "flex",  flexDirection: "column", border:"solid 1px", borderRadius:"5px", justifyContent:"center", alignItems:"center", gap: "30px", padding: "35px", margin:"20px"}}>
-            <button onClick={getP}>GET</button>
+        <div style={{display: "flex",  flexDirection: "column", border:"solid 1px", borderRadius:"5px", justifyContent:"center", alignItems:"center", gap: "30px",  margin:"20px"}}>
+            <button onClick={handleButton}style={{height:"100%", width:"100%",borderRadius:"5px"}}>GET</button>
         </div>
     )
 }
