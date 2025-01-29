@@ -7,7 +7,7 @@ import PutInput from './components/PutInput'
 import DeleteInput from './components/DeleteInput'
 import ResultA from './components/GetArray'
 
-function App() {
+function App () {
   const addtext = (t) => {
     setText([t])
   }
@@ -34,7 +34,9 @@ function App() {
           <PutInput
             putText={addtext}
           ></PutInput>
-          <DeleteInput></DeleteInput>
+          <DeleteInput
+          deleteText={addtext}
+          ></DeleteInput>
         </div>
         <hr />
         <div style={{ backgroundColor: "#F2F2F2" }}>

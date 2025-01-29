@@ -44,7 +44,8 @@ function GetArray({ arrayText }) {
                     return a.map(aIndex => (
                         <GetObject key={aIndex.id} objectText={aIndex}></GetObject>
                     ))
-                }else return <GetObject key={a.id} objectText={a}></GetObject>
+                }
+                else return <GetObject key={a.id} objectText={a}></GetObject>
                 
                 
             })}

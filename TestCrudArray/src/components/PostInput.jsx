@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { postT } from "../services/TextService";
+import { postTAxios } from "../services/TextServiceAxios";
 
 
 function PostInput({postText}){
@@ -20,7 +21,7 @@ function PostInput({postText}){
 
     const handleButton =()=>{
         console.log('click post')
-        postT(inputPost,setInputPost,postText)
+        postTAxios(inputPost,setInputPost,postText)
     }    
     
     

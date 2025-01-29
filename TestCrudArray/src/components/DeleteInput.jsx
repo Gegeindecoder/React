@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { deleteP } from "../services/TextService";
+import { deleteTAxios } from "../services/TextServiceAxios";
 
-function DeleteInput() {
+function DeleteInput({}) {
 
     const [inputDelete, setInputDelete] = useState({
         id: 1,
@@ -16,7 +17,7 @@ function DeleteInput() {
 
     const handleButton = () => {
         console.log('click delete')
-        deleteP(inputDelete, setInputDelete)
+        deleteTAxios(inputDelete, setInputDelete)
     }
 
     return (

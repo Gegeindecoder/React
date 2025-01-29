@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { putT } from "../services/TextService";
+import { updateTAxios } from "../services/TextServiceAxios";
 
 function PutInput({putText}){
     
@@ -22,7 +23,7 @@ function PutInput({putText}){
     //     }
     const handleButton=()=>{
         console.log('click put')
-        putT(inputPut,setInputPut,putText)
+        updateTAxios(inputPut,setInputPut,putText)
     }
         
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getTById } from "../services/TextService";
+import { getIdTAxios } from "../services/TextServiceAxios";
 
 function getTByIdInput({getIdText}) {
     
@@ -16,7 +17,7 @@ function getTByIdInput({getIdText}) {
         }
         const handleButton = () => {
             console.log('click get')
-            getTById(inputGetid,getIdText)
+            getIdTAxios(inputGetid,getIdText)
         }
 
     return (

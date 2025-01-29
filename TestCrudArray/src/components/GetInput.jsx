@@ -1,4 +1,5 @@
 import { getT } from "../services/TextService"
+import { getAllTAxios } from "../services/TextServiceAxios"
 
 function GetInput({ getText }){
     
@@ -9,9 +10,9 @@ function GetInput({ getText }){
     //     title:''
     // });
     
-     const handleButton =()=>{
+     const handleButton =(e)=>{
             console.log('click get')
-            getT(getText)
+            getAllTAxios(getText)
         }    
         
 

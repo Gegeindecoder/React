@@ -16,7 +16,7 @@ export const postT = (inputPost, setInputPost,postText) => {
         .then((res) => res.json())
         .then((data) => {
             text = data
-            postText(data)
+            postText(text)
             console.log(text)
             setInputPost(text)
         }).catch((e) => console.log(e))
