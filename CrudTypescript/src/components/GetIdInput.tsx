@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { getTById } from "../services/TextService";
-import { getIdTAxios } from "../services/TextServiceAxios";
+// import { getId } from "../services/TextServices";
 
-function getTByIdInput({getIdText}) {
+function getTByIdInput({getIdText}:any) {
     
     const[inputGetid, setInputGetid] = useState({
-            id:1,
+            id: '',
         });
     
     
-        const handleChange = (e)=>{
+        const handleChange = (e:any)=>{
             const {name, value} = e.target;
             setInputGetid((p)=>({
                 ...p, [name]:value
@@ -17,12 +16,12 @@ function getTByIdInput({getIdText}) {
         }
         const handleButton = () => {
             console.log('click get')
-            getIdTAxios(inputGetid,getIdText)
+            // getId(inputGetid,getIdText,inputGetid.id)
         }
 
     return (
         <div style={{ display: "flex", flexDirection: "column", border: "solid 1px", borderRadius: "5px", justifyContent: "center", alignItems: "center", gap: "30px", margin: "20px" }}>
-            <input type="number" name="id" value={inputGetid.id} placeholder="id " onChange={handleChange} />
+            <input type="number" name="id" value={inputGetid.id} placeholder="id " onChange={handleChange} min={1} />
             <button onClick={handleButton}>GET</button>
         </div>
     )
