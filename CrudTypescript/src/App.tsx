@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Testo from './types/text'
-import Read from './components/GetTextInput'
+import Read from './components/GetIdInput'
 import Create from './components/PostTextInput'
 import Update from './components/PutTextInput'
 import Delete from './components/DeleteTextInput'
@@ -19,11 +19,9 @@ function App() {
     <>
       <div>
         <div>
-          <Read></Read>
           <Create></Create>
           <Update></Update>
-          <Delete>
-          </Delete>
+          <Delete></Delete>
         </div>
         <hr />
         <div style={{ backgroundColor: "#F2F2F2" }}>

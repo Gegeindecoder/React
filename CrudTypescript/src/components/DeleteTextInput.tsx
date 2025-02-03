@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { deleteT } from "../services/TextServices";
+import { remove } from "../store/textSlice";
+import { useDispatch } from "react-redux";
 
 function DeleteInput() {
 
+    const dispathc = useDispatch()
     const [inputDelete, setInputDelete] = useState({
         id: '',
     });
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const { name, value } = e.target;
         setInputDelete((p) => ({
             ...p, [name]: value
@@ -16,7 +18,14 @@ function DeleteInput() {
 
     const handleButton = () => {
         console.log('click delete')
-        deleteT(inputDelete, setInputDelete,inputDelete.id)
+        // deleteT(inputDelete, setInputDelete,inputDelete.id)
+        const text: object = {
+            id: parseInt(inputDelete.id),
+            userId:null,
+            title: null,
+            body: null
+        }
+        dispathc(remove(text))
     }
 
     return (

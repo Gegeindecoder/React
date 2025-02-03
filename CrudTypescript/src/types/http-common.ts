@@ -7,7 +7,8 @@ https://github.com/bezkoder/react-typescript-api-call/tree/master/src
 https://axios-http.com/docs/instance
 */
 export default axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/posts',
+  //https://www.bezkoder.com/react-redux-crud-example/
+    baseURL: 'http://localhost:5173/api',
     headers: {
         "Content-type": "application/json"
       }

@@ -1,14 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
 import GetObject from "./ObjectText"
+import { useEffect, useState } from "react"
 
 function GetArray() {
 
     const texts = useSelector((t:any)=> t.texting.value)
 
 
+    useEffect(()=>{
+        console.log(texts)
+    },[texts])
+
+
     return ( //https://www.kindacode.com/article/react-rendering-an-array-of-objects
         <div style={{ border: "1px solid", display: "flex", flexWrap: "wrap", justifyContent: "center", borderRadius: "6px" }}>
             {texts.map((a:any) => {
+
                 if (Array.isArray(a)) {
                     return a.map(aIndex => (
                         <GetObject key={aIndex.id} objectText={aIndex}></GetObject>

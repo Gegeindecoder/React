@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { useDispatch } from "react-redux";
 import { add } from "../store/textSlice"
+import Testo from "../types/text";
 
 function PostTextInput(){
     const dispatch = useDispatch()
@@ -8,7 +9,7 @@ function PostTextInput(){
         id:101,
         userId:'',
         title:'',
-        body:null
+        body:''
     });
 
 
@@ -21,9 +22,9 @@ function PostTextInput(){
 
     const handleButton =()=>{
         console.log('click post')
-        const text={
+        const text:Testo={
             id: inputPost.id++,
-            useId: parseInt(inputPost.userId),
+            userId: parseInt(inputPost.userId),
             title: inputPost.title,
             body: inputPost.body
         }
